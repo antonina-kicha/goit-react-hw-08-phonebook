@@ -5,7 +5,7 @@ import { FormWrapper, Button, Error } from './ContactForm.styled'
 import { useState } from 'react';
 
 import { useDispatch } from "react-redux";
-import {addContact} from 'redux/operations'
+import {addContact} from 'redux/contacts/operations'
 
 const Input = styled(Field)`
     width: 350px;

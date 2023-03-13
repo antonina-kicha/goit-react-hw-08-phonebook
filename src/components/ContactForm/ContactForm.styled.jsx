@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
-position: relative;
-padding: 20px;
-border: 1px dotted black;
-border-radius: 6px;
+    text-align: center;
+    max-width: 450px;
+    min-width: 300px;
+    position: relative;
+    padding: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
 `;
+
 
 export const Button = styled.button`
     border-radius: 4px;

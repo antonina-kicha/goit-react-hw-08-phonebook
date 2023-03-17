@@ -5,7 +5,9 @@ import { FormWrapper, Button, Error } from './ContactForm.styled'
 import { useState } from 'react';
 
 import { useDispatch } from "react-redux";
-import {addContact} from 'redux/contacts/operations'
+import { addContact } from 'redux/contacts/operations'
+import { useAuth } from 'hooks/useAuth';
+
 
 const Input = styled(Field)`
     width: 350px;
@@ -19,6 +21,7 @@ const FormWithStyle = styled(Form)`
     `;
 
 export const ContactForm = () => {
+     const { contacts } = useAuth();
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -46,6 +49,14 @@ export const ContactForm = () => {
         // evt.preventDefault();
           if (!name || !number) {
             setError('Please fill out all contact information...');
+            return;
+          }
+            if (contacts.find(contact => contact.name === name))  {
+            setError('You have a contact with that name...');
+            return;
+            }
+        if (contacts.find(contact => contact.number === number))  {
+            setError('You have a contact with that phone...');
             return;
         }
         dispatch(addContact(({name, number})));

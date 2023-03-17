@@ -34,11 +34,7 @@ const fetchRejected = (state, action) => {
         [deleteContact.fulfilled](state, action) {
             state.isLoading = false;
             state.error = null;
-            console.log(action.payload);
-            const index = state.items.findIndex(
-                contact => contact.id === action.payload
-            );
-            state.items.splice(index, 1);
+            state.items = state.items.filter(item => item.id !== action.payload.id);
         },
         [deleteContact.rejected]: fetchRejected,
         [update.pending]: fetchPending,

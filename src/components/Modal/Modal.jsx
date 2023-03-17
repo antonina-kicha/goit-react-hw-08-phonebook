@@ -1,19 +1,29 @@
 import { useAuth } from 'hooks/useAuth';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from "react-redux";
+import { useState } from 'react';
+
 import { update } from 'redux/contacts/operations';
-import { ModalContainer, Overlay, FormWithStyle, Input, Button } from './Modal.styled';
+import { ModalContainer, Overlay, FormWithStyle, Input, Button, Error } from './Modal.styled';
 
 
 export const Modal = ({ id, closeModal }) => {
     const { contacts } = useAuth();
     const dispatch = useDispatch();
+    const [error, setError] = useState('');
 
-    
 const handleSubmit = (evt) => {
   
     const name = evt.name;
     const number = evt.number;
+    if (contacts.find(contact => contact.name === name))  {
+            setError('You have a contact with that name...');
+            return;
+            }
+        if (contacts.find(contact => contact.number === number))  {
+            setError('You have a contact with that phone...');
+            return;
+        }
 
     dispatch(
         update(({id, name, number}))
@@ -62,7 +72,8 @@ const handleSubmit = (evt) => {
                 </div>
 
       </FormWithStyle>
-            </Formik>
+                </Formik>
+                {error && <Error>{error}</Error>}
             </ModalContainer>
             </Overlay>
     )

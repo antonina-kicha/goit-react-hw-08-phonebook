@@ -18,6 +18,8 @@ position: fixed;
 
 
 export const ModalContainer = styled.div`
+    position: relative;
+
 padding: 40px;
 width: 360px;
 height: 210px;
@@ -55,5 +57,11 @@ export const Button = styled.button`
         background-color: rgb(139, 0, 0);
         color: #ffffff;
     }
+`;
 
+export const Error = styled.p`
+    position: absolute;
+    top: 180px;
+    font-size: 12px;
+    color: red;
 `;

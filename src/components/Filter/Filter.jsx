@@ -11,11 +11,11 @@ export const Filter = () => {
     const changeFilter = (evt) => {
         dispatch(setStatusFilter(evt.currentTarget.value));
   }
-    
+
     return (
         <FilterField>
-            <Label for="filter"><RiSearchLine/>Find contacts by name </Label> 
-            <Input type="text" id="filter" onChange={changeFilter}/>
+            <Label ><RiSearchLine size={18}/> </Label> 
+            <Input type="text" id="filter" onChange={changeFilter} placeholder="Find contacts by name"/>
         </FilterField> 
             
         )

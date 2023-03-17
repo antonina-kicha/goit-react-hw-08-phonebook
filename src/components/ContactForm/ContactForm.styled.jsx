@@ -5,7 +5,7 @@ export const FormWrapper = styled.div`
     max-width: 450px;
     min-width: 300px;
     position: relative;
-    padding: 40px;
+    padding: 50px 40px 40px 40px;
     border: 1px solid black;
     border-radius: 5px;
 `;
@@ -25,7 +25,7 @@ margin-left: auto;
     border: 1px solid rgb(139, 0, 0);
     border-radius: 7px;
     cursor: pointer;
-    :hover{
+    :hover {
         background-color: rgb(139, 0, 0);
         color: #ffffff;
     }
@@ -34,8 +34,20 @@ margin-left: auto;
 
 export const Error = styled.p`
     position: absolute;
-    top: 180px;
+    top: 160px;
     font-size: 12px;
     color: red;
 `;
+
+export const Label = styled.label`
+  position: absolute;
+    top: -20px;
+    left: 0;
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
+   
+`;
+
 

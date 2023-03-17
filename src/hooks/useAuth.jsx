@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectUser, selectIsLoggedIn, selectIsRefreshing } from '../redux/auth/selectors';
+import { selectUser, selectIsLoggedIn, selectIsRefreshing, selectError } from '../redux/auth/selectors';
 import { selectContacts } from '../redux/contacts/selectors';
 
 
@@ -8,6 +8,8 @@ export const useAuth = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const isRefreshing = useSelector(selectIsRefreshing);
     const contacts = useSelector(selectContacts);
+    const error = useSelector(selectError);
+
 
     
 
@@ -16,5 +18,6 @@ export const useAuth = () => {
         isLoggedIn,
         isRefreshing,
         contacts,
+        error,
     };
 };

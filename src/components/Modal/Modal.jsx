@@ -2,10 +2,12 @@ import { useAuth } from 'hooks/useAuth';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import { update } from 'redux/contacts/operations';
 import { ModalContainer, Overlay, FormWithStyle, Input, Button, Error } from './Modal.styled';
 
+const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ id, closeModal }) => {
     const { contacts } = useAuth();
@@ -16,11 +18,12 @@ const handleSubmit = (evt) => {
   
     const name = evt.name;
     const number = evt.number;
-    if (contacts.find(contact => contact.name === name))  {
+    const contactsWithoutEdit = contacts.filter(contact => contact.id !== id)
+    if (contactsWithoutEdit.find(contact => contact.name === name))  {
             setError('You have a contact with that name...');
             return;
             }
-        if (contacts.find(contact => contact.number === number))  {
+        if (contactsWithoutEdit.find(contact => contact.number === number))  {
             setError('You have a contact with that phone...');
             return;
         }
@@ -39,7 +42,7 @@ const handleSubmit = (evt) => {
         return ({ name: contactUpdate.name, number: contactUpdate.number });
     }
 
-    return (
+    return createPortal (
         <Overlay>
         <ModalContainer>
         <Formik
@@ -75,6 +78,7 @@ const handleSubmit = (evt) => {
                 </Formik>
                 {error && <Error>{error}</Error>}
             </ModalContainer>
-            </Overlay>
+        </Overlay>,
+        modalRoot,
     )
 }

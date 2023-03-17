@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from 'formik';
 import styled from 'styled-components';
-import { FormWrapper, Button, Error } from './ContactForm.styled'
+import { FormWrapper, Button, Error, Label, InputWrapper } from './ContactForm.styled'
 
 import { useState } from 'react';
 
@@ -10,13 +10,13 @@ import { useAuth } from 'hooks/useAuth';
 
 
 const Input = styled(Field)`
-    width: 350px;
-    height: 20px;
+       width: 305px;
+    height: 25px;
     `;
 const FormWithStyle = styled(Form)`
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 45px;
     justify-content: space-between;
     `;
 
@@ -77,25 +77,30 @@ export const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       <FormWithStyle autoComplete = "off">
-            <label htmlFor="name">
+        <InputWrapper>
+            <Label htmlFor="name">
                 Name
-            </label>
+            </Label>
                 <Input
                     id="name"
                     name="name"
                     type="text"
                     pattern="^[a-zA-Zа-яА-Я0-9]+(([' -][a-zA-Zа-яА-Я0-9])?[a-zA-Zа-яА-Я0-9]*)*$"
-                    value={name} onChange={handleInputChange} />
+                            value={name} onChange={handleInputChange} />
+                    </InputWrapper>
+            <InputWrapper>
 
-            <label htmlFor="number">
+            <Label htmlFor="number">
                 Contact
-            </label>
+            </Label>
                 <Input
                     id="number"
                     name="number"
                     type="tel"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                    value={number} onChange={handleInputChange} />
+                            value={number} onChange={handleInputChange} />
+             </InputWrapper>
+
 
         <Button type="submit" >Add contact</Button>
       </FormWithStyle>

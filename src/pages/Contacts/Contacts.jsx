@@ -2,15 +2,17 @@ import { ContactForm } from 'components/ContactForm/ContactForm.jsx'
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import { selectError, selectIsLoading, selectContacts } from 'redux/contacts/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
-import { FilterContainer, ContactsContainer, ContactsListWrapper, AddContactWrapper, MainHeader, Container } from './Contacts.styled';
+import { FilterContainer, ContactsContainer, ContactsListWrapper, AddContactWrapper, MainHeader, Container, Image } from './Contacts.styled';
 
 export default function Contacts() {
 const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const items = useSelector(selectContacts);
+  console.log(items);
 
     useEffect(() => {
         dispatch(fetchContacts());
@@ -26,12 +28,12 @@ const dispatch = useDispatch();
           <ContactsListWrapper>
             <h2>Contacts</h2>
             {isLoading && !error && <b>Request in progress...</b>}
-            <ContactList />
+            {items.length > 0 ? <ContactList /> : <p>Your contact list will be here</p>}
           </ContactsListWrapper>
           <AddContactWrapper>
              <h2>Create new contact</h2>
             <ContactForm />
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/1896_telephone.jpg/222px-1896_telephone.jpg' alt='phone'></img>
+            <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/1896_telephone.jpg/222px-1896_telephone.jpg' alt='number'></Image>
           </AddContactWrapper>
          
         </ContactsContainer>

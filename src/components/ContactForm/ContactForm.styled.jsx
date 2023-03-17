@@ -12,19 +12,30 @@ export const FormWrapper = styled.div`
 
 
 export const Button = styled.button`
-    border-radius: 4px;
-    height: 30px;
+margin-left: auto;
+    margin-top: 5px;
     padding: 0 15px;
-    margin-left: auto;
-    margin-top: 15px;
+    width: 120px;
+    padding: 10px;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(139, 0, 0);
+    border-radius: 7px;
+    cursor: pointer;
+    :hover{
+        background-color: rgb(139, 0, 0);
+        color: #ffffff;
+    }
 
 `;
 
 export const Error = styled.p`
     position: absolute;
-    top: 80px;
-    left: 120px;
-    
+    top: 180px;
+    font-size: 12px;
     color: red;
 `;
 

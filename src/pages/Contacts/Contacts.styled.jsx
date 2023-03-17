@@ -36,6 +36,15 @@ color: rgb(139, 0, 0);
 
 `;
 
+export const Image = styled.img`
+display: block;
+margin-left: auto;
+margin-top: 20px;
+
+`;
+
+
+
 
 
 

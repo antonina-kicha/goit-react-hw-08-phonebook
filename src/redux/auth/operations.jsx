@@ -50,6 +50,7 @@ export const logIn = createAsyncThunk('auth/login',
             return responce.data;
         }
         catch (e) {
+            console.log(e);
             return thunkAPI.rejectWithValue(e.message);
         }
     }

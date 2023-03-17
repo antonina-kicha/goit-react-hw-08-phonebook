@@ -21,7 +21,7 @@ const FormWithStyle = styled(Form)`
 export const ContactForm = () => {
 
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
+    const [number, setNumber] = useState('');
     const [error, setError] = useState('');
 
 
@@ -34,8 +34,8 @@ export const ContactForm = () => {
             case "name":
                 setName(evt.currentTarget.value);
                 break;
-            case "phone":
-                setPhone(evt.currentTarget.value);
+            case "number":
+                setNumber(evt.currentTarget.value);
                 break;
             default:
                 return;
@@ -44,25 +44,25 @@ export const ContactForm = () => {
 
     const handleSubmit = evt => {
         // evt.preventDefault();
-          if (!name || !phone) {
+          if (!name || !number) {
             setError('Please fill out all contact information...');
             return;
         }
-        dispatch(addContact(({name, phone})));
-        console.log(name, phone);
+        dispatch(addContact(({name, number})));
+        console.log(name, number);
         resetForm();
     }
 
     const resetForm = () => {
         setName('');
-        setPhone('');
+        setNumber('');
         setError('');
     }
 
     return (
       <FormWrapper>
         <Formik
-        initialValues={{name: '', phone: ''}}
+        initialValues={{name: '', number: ''}}
       onSubmit={handleSubmit}
     >
       <FormWithStyle autoComplete = "off">
@@ -73,18 +73,18 @@ export const ContactForm = () => {
                     id="name"
                     name="name"
                     type="text"
-                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    pattern="^[a-zA-Zа-яА-Я0-9]+(([' -][a-zA-Zа-яА-Я0-9])?[a-zA-Zа-яА-Я0-9]*)*$"
                     value={name} onChange={handleInputChange} />
 
-            <label htmlFor="phone">
-                Contacts
+            <label htmlFor="number">
+                Contact
             </label>
                 <Input
-                    id="phone"
-                    name="phone"
+                    id="number"
+                    name="number"
                     type="tel"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                    value={phone} onChange={handleInputChange} />
+                    value={number} onChange={handleInputChange} />
 
         <Button type="submit" >Add contact</Button>
       </FormWithStyle>

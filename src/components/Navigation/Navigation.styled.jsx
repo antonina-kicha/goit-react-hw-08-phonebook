@@ -6,7 +6,10 @@ import { GiNotebook } from 'react-icons/gi';
 
 export const Link = styled(NavLink)`
 color: #ffffff;
-text-decoration: none
+text-decoration: none;
+:hover{
+    color: rgb(139, 0, 0)
+}
 `;
 
 export const LogoIcon = styled(GiNotebook)`

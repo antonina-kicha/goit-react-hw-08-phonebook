@@ -13,12 +13,11 @@ export const ListItem = styled.li`
     justify-content: space-between;
     padding-top: 10px;
     align-items: center;  
-    border-bottom: 1px dotted;  
+    border-bottom: 1px dotted;    
 
 `;
 
 export const Button = styled.button`
-    border-radius: 4px;
     height: 30px;
     padding: 0 15px;
     margin-left: 10px;
@@ -28,7 +27,6 @@ export const Button = styled.button`
     font-weight: 400;
     font-size: 14px;
     color: black;
-    text-transform: uppercase;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgb(139, 0, 0);
     border-radius: 7px;
@@ -37,4 +35,10 @@ export const Button = styled.button`
         background-color: rgb(139, 0, 0);
         color: #ffffff;
     }
+`;
+
+export const ContactInfo = styled.div`
+    display: flex;
+    gap: 10px;
+    align-items: center;  
 `;

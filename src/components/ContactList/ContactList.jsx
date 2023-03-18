@@ -18,15 +18,13 @@ export const ContactList = () => {
     const filter = useSelector(selectFilter);
 
     const dispatch = useDispatch();
-    
+
     const handleDelete = (id) => {
-        console.log(id);
         dispatch(deleteContact(id));
     };
 
     const getVisibleContasts = () => {
         const normalisedFilter = filter.toLowerCase();
-        console.log(contacts);
         if(contacts !== []){
             const visebleContacts = contacts.filter(contact =>
             contact.name.toLowerCase().includes(normalisedFilter));

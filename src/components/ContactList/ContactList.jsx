@@ -57,7 +57,7 @@ export const ContactList = () => {
                             <RxAvatar size={24}/>
                             <span>{listItem.name}: {listItem.number}</span>
                         </ContactInfo>
-                        
+                
                         <div>
                             <Button type='button' onClick={() => handleDelete(listItem.id)}><AiOutlineDelete size={18}/></Button>
                             <Button type='button' onClick={() => openModal(listItem.id)}><AiOutlineEdit size={18}/></Button>

@@ -1,7 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-
+import { createSlice } from '@reduxjs/toolkit'
 import { fetchContacts, addContact, deleteContact, update } from './operations';
 
 const fetchPending = (state) => {

@@ -3,7 +3,6 @@ import { CgSandClock } from 'react-icons/cg';
 import { AiOutlineSchedule } from 'react-icons/ai';
 import { MdSecurity } from 'react-icons/md';
 
-
 export default function Home() {
     return (
         <Container>

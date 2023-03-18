@@ -3,7 +3,6 @@ import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
 
-
 export const Form = styled.form`
     text-align: center;
     width: 400px;
@@ -15,34 +14,33 @@ export const Form = styled.form`
 `;
 
 export const FieldName = styled.span`
-position: absolute;
+    position: absolute;
     top: -25px;
     left: 0;
 `;
 
 export const FormField = styled.input`
-box-sizing: border-box;
-width: 100%;
-border: 1px solid;
-padding: 10px;
-padding-left: 50px;
-margin-bottom: 10px;
-border-radius: 5px;
-outline: #8B0000;
-&:focus {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid;
+    padding: 10px;
+    padding-left: 50px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    outline: #8B0000;
+    &:focus {
         border-color: #8B0000;
         outline: transparent;
     }
     &:invalid:not(:placeholder-shown) {
         border: 1px solid red;
         }
- 
 `;
 
 export const FormLabel = styled.label`
-position: relative;
-display: block;
-margin-bottom: 35px;
+    position: relative;
+    display: block;
+    margin-bottom: 35px;
 `;
 
 

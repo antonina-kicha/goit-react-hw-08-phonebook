@@ -8,13 +8,10 @@ const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-
 // Utility to remove JWT
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
-
-
 
 /*
  * POST @ /users/signup
@@ -30,12 +27,9 @@ export const register = createAsyncThunk(
             return responce.data;
         }
         catch (e) {
-            console.log('вызов catch', e)
             return thunkAPI.rejectWithValue(e.message);
         }
     })
-
-
 
 /*
  * POST @ /users/login

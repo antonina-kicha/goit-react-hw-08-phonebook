@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Field, Form } from 'formik';
 
 export const FormWrapper = styled.div`
     text-align: center;
@@ -10,9 +11,8 @@ export const FormWrapper = styled.div`
     border-radius: 5px;
 `;
 
-
 export const Button = styled.button`
-margin-left: auto;
+    margin-left: auto;
     margin-top: 5px;
     padding: 0 15px;
     width: 120px;
@@ -25,11 +25,6 @@ margin-left: auto;
     border: 1px solid rgb(139, 0, 0);
     border-radius: 7px;
     cursor: pointer;
-    :hover {
-        background-color: rgb(139, 0, 0);
-        color: #ffffff;
-    }
-
 `;
 
 export const Error = styled.p`
@@ -40,14 +35,25 @@ export const Error = styled.p`
 `;
 
 export const Label = styled.label`
-  position: absolute;
+    position: absolute;
     top: -20px;
     left: 0;
 `;
 
 export const InputWrapper = styled.div`
-  position: relative;
-   
+    position: relative;
+`;
+
+export const Input = styled(Field)`
+    width: 305px;
+    height: 25px;
+`;
+
+export const FormWithStyle = styled(Form)`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: space-between;
 `;
 
 

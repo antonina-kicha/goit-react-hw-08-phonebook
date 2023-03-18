@@ -6,9 +6,6 @@ export const Label = styled.label`
     left: 7px;
     color: rgb(92, 94, 92);
     font-size: 14px;
-     
-
- 
 `;
 export const Input = styled.input`
     box-sizing: border-box;

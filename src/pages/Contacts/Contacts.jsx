@@ -2,17 +2,14 @@ import { ContactForm } from 'components/ContactForm/ContactForm.jsx'
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading, selectContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
 import { FilterContainer, ContactsContainer, ContactsListWrapper, AddContactWrapper, MainHeader, Container, Image } from './Contacts.styled';
 
 export default function Contacts() {
-const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const dispatch = useDispatch();
   const items = useSelector(selectContacts);
-  console.log(items);
 
     useEffect(() => {
         dispatch(fetchContacts());
@@ -27,7 +24,6 @@ const dispatch = useDispatch();
         <ContactsContainer>
           <ContactsListWrapper>
             <h2>Contacts</h2>
-            {isLoading && !error && <b>Request in progress...</b>}
             {items.length > 0 ? <ContactList /> : <p>Your contact list will be here</p>}
           </ContactsListWrapper>
           <AddContactWrapper>
